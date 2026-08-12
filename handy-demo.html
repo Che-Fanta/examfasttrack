@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ExamFastTrack · Handy-Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>/* ExamFastTrack blog — shared styles */
+:root{
+  --ink:#152238;
+  --ink-soft:#3a4a66;
+  --paper:#FBFAF6;
+  --paper-2:#F1EDE3;
+  --gold:#B67F2E;
+  --gold-bright:#D69B36;
+  --rule:#E4DECF;
+  --track:#E9E3D4;
+  --maxw:720px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:19px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.u{font-family:"Space Grotesk",system-ui,sans-serif}
+a{color:var(--ink);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--gold)}
+img{max-width:100%;height:auto}
+
+/* header / nav */
+.site-head{
+  border-bottom:1px solid var(--rule);
+  background:var(--paper);
+  position:sticky;top:0;z-index:20;
+}
+.nav{
+  max-width:1000px;margin:0 auto;padding:18px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{
+  font-family:"Space Grotesk",sans-serif;font-weight:700;
+  font-size:19px;letter-spacing:-.02em;text-decoration:none;color:var(--ink);
+  display:inline-flex;align-items:center;gap:9px;
+}
+.brand .mark{
+  width:22px;height:22px;border-radius:5px;
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  display:inline-block;position:relative;flex:none;
+}
+.brand .mark::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(45deg,transparent 42%,var(--paper) 44%,var(--paper) 50%,transparent 52%),
+    linear-gradient(45deg,transparent 58%,var(--paper) 60%,var(--paper) 70%,transparent 72%);
+}
+.nav-links{display:flex;gap:22px;font-family:"Space Grotesk",sans-serif;font-size:14px;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--gold)}
+@media(max-width:620px){.nav-links{display:none}}
+
+/* generic wrap */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* eyebrow / labels */
+.eyebrow{
+  font-family:"Space Grotesk",sans-serif;font-weight:600;
+  font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 14px;
+}
+.eyebrow .dot{color:var(--rule);margin:0 8px}
+
+/* ---------- home ---------- */
+.hero{max-width:1000px;margin:0 auto;padding:76px 24px 40px}
+.hero h1{
+  font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-.03em;
+  font-weight:700;margin:0 0 22px;max-width:15ch;
+}
+.hero p{font-size:21px;color:var(--ink-soft);margin:0;max-width:52ch}
+
+.grid{
+  max-width:1000px;margin:0 auto;padding:24px 24px 90px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px;
+  background:var(--rule);border:1px solid var(--rule);
+}
+.card{
+  background:var(--paper);padding:30px 28px 34px;text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;gap:14px;transition:background .18s ease;
+}
+.card:hover{background:var(--paper-2)}
+.card .meta{font-family:"Space Grotesk",sans-serif;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold);font-weight:600}
+.card h2{font-size:23px;line-height:1.18;letter-spacing:-.02em;margin:0;font-weight:600}
+.card p{margin:0;font-size:16.5px;color:var(--ink-soft);line-height:1.55}
+.card .go{margin-top:auto;font-family:"Space Grotesk",sans-serif;font-size:14px;
+  font-weight:600;color:var(--ink)}
+.card:hover .go{color:var(--gold)}
+
+/* ---------- article ---------- */
+.article{padding:56px 0 40px}
+.article .eyebrow{margin-bottom:18px}
+.article h1{
+  font-size:clamp(30px,5vw,46px);line-height:1.08;letter-spacing:-.025em;
+  font-weight:700;margin:0 0 20px;
+}
+.lead{font-size:22px;line-height:1.55;color:var(--ink-soft);margin:0 0 10px}
+.byline{
+  font-family:"Space Grotesk",sans-serif;font-size:13.5px;color:var(--ink-soft);
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:14px 0;margin:28px 0 0;display:flex;gap:16px;flex-wrap:wrap;
+}
+.byline b{color:var(--ink);font-weight:600}
+
+/* article body with progress rail */
+.body{position:relative;padding:38px 0 0}
+.body h2{
+  font-size:27px;line-height:1.2;letter-spacing:-.02em;margin:44px 0 4px;font-weight:700;
+  scroll-margin-top:84px;
+}
+.body h3{font-size:20px;margin:30px 0 2px;font-weight:600;letter-spacing:-.01em}
+.body p{margin:16px 0}
+.body ul,.body ol{margin:16px 0;padding-left:22px}
+.body li{margin:9px 0}
+.body strong{color:var(--ink)}
+@media(min-width:900px){
+  .body{padding-left:34px}
+  .body::before{content:"";position:absolute;left:0;top:14px;bottom:40px;
+    width:2px;background:var(--track)}
+  .body h2::before{content:"";position:absolute;left:-34px;margin-top:12px;
+    width:12px;height:12px;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 0 4px var(--paper)}
+  .body h2{position:relative}
+}
+
+/* callout / cta */
+.cta{
+  background:var(--ink);color:#fff;border-radius:14px;
+  padding:30px 30px 32px;margin:40px 0;
+}
+.cta .eyebrow{color:var(--gold-bright);margin-bottom:10px}
+.cta h3{color:#fff;font-size:22px;margin:0 0 8px;font-weight:600}
+.cta p{margin:0 0 20px;color:#cfd6e4;font-size:17px}
+.btn{
+  display:inline-block;background:var(--gold-bright);color:#1a1205;
+  font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:15px;
+  text-decoration:none;padding:13px 22px;border-radius:9px;transition:background .16s ease;
+}
+.btn:hover{background:#eab84a;color:#1a1205}
+
+.tip{
+  border-left:3px solid var(--gold);background:var(--paper-2);
+  padding:16px 20px;margin:26px 0;border-radius:0 8px 8px 0;font-size:17.5px;
+}
+
+/* faq */
+.faq{margin:40px 0 0;border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule);padding:4px 0}
+.faq summary{
+  font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:18px;
+  padding:18px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:0 0 18px;font-size:17.5px;color:var(--ink-soft)}
+
+/* related */
+.related{margin:46px 0 0;border-top:1px solid var(--rule);padding-top:26px}
+.related .eyebrow{margin-bottom:16px}
+.related a{display:block;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--rule);
+  font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:17px}
+.related a span{color:var(--gold);font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+  display:block;margin-bottom:2px;font-weight:600}
+
+/* footer */
+.site-foot{border-top:1px solid var(--rule);background:var(--paper-2);margin-top:60px}
+.foot-in{max-width:1000px;margin:0 auto;padding:40px 24px;
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  font-family:"Space Grotesk",sans-serif;font-size:14px;color:var(--ink-soft)}
+.foot-in a{color:var(--ink-soft);text-decoration:none}
+.foot-in a:hover{color:var(--gold)}
+
+/* motion */
+@media(prefers-reduced-motion:no-preference){
+  .fade{opacity:0;transform:translateY(12px);animation:rise .6s ease forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+}
+
+/* ---------- brand tagline ---------- */
+.brand .tag{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gold);
+  border-left:1px solid var(--rule);padding-left:9px;margin-left:2px}
+@media(max-width:520px){.brand .tag{display:none}}
+
+/* ---------- quiz ---------- */
+.quiz{margin:34px 0 0}
+.qbar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-family:"Space Grotesk",sans-serif;font-size:13px;color:var(--ink-soft);
+  letter-spacing:.04em;margin-bottom:14px}
+.qbar .track2{flex:1;height:4px;background:var(--track);border-radius:99px;overflow:hidden}
+.qbar .fill{height:100%;width:0;background:var(--gold);transition:width .35s ease}
+.qcard{border:1px solid var(--rule);border-radius:14px;padding:26px 24px;background:var(--paper)}
+.qnum{font-family:"Space Grotesk",sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.qtext{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;
+  line-height:1.35;margin:0 0 20px;color:var(--ink)}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;
+  font-family:"Source Serif 4",serif;font-size:17px;line-height:1.4;color:var(--ink);
+  background:var(--paper);border:1.5px solid var(--rule);border-radius:10px;
+  padding:14px 16px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover:not([disabled]){border-color:var(--gold);background:var(--paper-2)}
+.opt .key{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:14px;
+  color:var(--ink-soft);flex:none;width:20px}
+.opt[disabled]{cursor:default}
+.opt.correct{border-color:#2e8b57;background:#eaf5ee}
+.opt.correct .key{color:#2e8b57}
+.opt.wrong{border-color:#c0392b;background:#fbeceb}
+.opt.wrong .key{color:#c0392b}
+.opt.correct .key::after{content:" ✓"}
+.opt.wrong .key::after{content:" ✕"}
+.explain{margin:16px 0 0;padding:16px 18px;border-left:3px solid var(--gold);
+  background:var(--paper-2);border-radius:0 8px 8px 0;font-size:16.5px;line-height:1.55;
+  display:none}
+.explain.show{display:block}
+.explain b{font-family:"Space Grotesk",sans-serif;font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:5px;font-weight:600}
+.qnav{display:flex;justify-content:flex-end;margin-top:18px}
+.next{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:15px;
+  background:var(--ink);color:#fff;border:none;border-radius:9px;padding:12px 22px;
+  cursor:pointer;transition:background .15s;display:none}
+.next:hover{background:var(--ink-soft)}
+.next.show{display:inline-block}
+.result{border:1px solid var(--rule);border-radius:14px;padding:32px 26px;text-align:center;display:none}
+.result.show{display:block}
+.result .score{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:44px;
+  letter-spacing:-.02em;color:var(--ink);margin:0}
+.result .score span{color:var(--gold)}
+.result p{color:var(--ink-soft);margin:6px 0 22px}
+
+/* ---------- author / trust block ---------- */
+.author{max-width:var(--maxw);margin:56px auto 0;padding:0 24px}
+.author-in{border:1px solid var(--rule);border-radius:14px;background:var(--paper-2);
+  padding:24px 26px;display:flex;gap:20px;align-items:flex-start}
+.author .ava{width:64px;height:64px;border-radius:14px;flex:none;object-fit:cover;
+  border:1px solid var(--rule)}
+.author h4{font-family:"Space Grotesk",sans-serif;font-size:16px;margin:0 0 4px;font-weight:700}
+.author h4 span{color:var(--gold);font-weight:600;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;margin-left:8px}
+.author p{margin:0;font-size:15.5px;line-height:1.55;color:var(--ink-soft)}
+.author .creds{margin-top:10px;display:flex;flex-wrap:wrap;gap:7px}
+.author .creds span{font-family:"Space Grotesk",sans-serif;font-size:11.5px;font-weight:600;
+  letter-spacing:.03em;color:var(--ink);background:var(--paper);border:1px solid var(--rule);
+  border-radius:99px;padding:4px 11px}
+@media(max-width:520px){.author-in{flex-direction:column;gap:14px}}
+
+.author .stats{font-family:"Space Grotesk",sans-serif;font-size:12.5px;font-weight:600;
+  color:var(--ink-soft);margin:2px 0 0;letter-spacing:.02em}
+.author .stats b{color:var(--ink)}
+</style></head><body>
+<header class="site-head"><nav class="nav">
+<a class="brand" href="#"><span class="mark"></span>ExamFastTrack<span class="tag">Pass first try</span></a>
+<div class="nav-links"><a href="#">Free questions</a></div></nav></header>
+<section class="hero"><p class="eyebrow">Free practice · no signup</p>
+<h1>Try a real exam question.</h1>
+<p>Exactly how the free questions work on your site — tap an answer, see if you're right, read why, then meet the person behind it.</p></section>
+<div class="wrap" style="padding-bottom:20px"><div class="quiz" id="quiz"></div></div>
+<section class="author"><div class="author-in">
+<img class="ava" src="data:image/jpeg;base64,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" alt="Lila Wolke" width="64" height="64" loading="lazy">
+<div>
+<h4>Lila Wolke <span>Creator</span></h4>
+<p class="stats"><b>1,000+</b> learners · <b>197</b> reviews on Udemy</p>
+<p style="margin-top:8px">Scrum Nerd, Data &amp; AI Explorer, Agile problem solver. I work in IT with a focus on Business Analysis, Data and modern technologies, and I build practice exams for Scrum, AWS and Databricks certifications — realistic questions with clear explanations, so you understand the logic behind each answer instead of just memorising it.</p>
+</div></div></section>
+<footer class="site-foot"><div class="foot-in"><span>© 2026 ExamFastTrack · Pass on the first try</span><a href="#">contact@examfasttrack.com</a></div></footer>
+<script>window.QUIZ={"cta": {"href": "https://www.udemy.com/course/databricks-data-engineer-associate-exams-fast-track-2026/", "label": "Get the full DEA question bank on Udemy \u2192"}, "questions": [{"q": "Which command permanently removes data files that are no longer referenced by a Delta table and older than the retention threshold?", "options": ["OPTIMIZE", "VACUUM", "ZORDER", "MERGE"], "answer": 1, "explain": "VACUUM removes unreferenced data files beyond the retention period, reclaiming storage. OPTIMIZE compacts files and ZORDER co-locates data \u2014 neither deletes old files.", "tag": "Data Engineer Associate \u00b7 Practice question"}, {"q": "You DROP a managed Delta table in Databricks. What happens to the underlying data files?", "options": ["The files are kept and only the metadata is removed", "The files are deleted along with the metadata", "The files are moved to a trash folder for 30 days", "Nothing changes until VACUUM runs"], "answer": 1, "explain": "For a managed table, Databricks controls both metadata and data, so dropping it deletes the underlying files. For an external table, only the metadata is removed and the files remain.", "tag": "Data Engineer Associate \u00b7 Practice question"}, {"q": "Which capability lets you query a previous version of a Delta table?", "options": ["Auto Loader", "Time Travel", "Structured Streaming", "Photon"], "answer": 1, "explain": "Delta Lake Time Travel lets you query earlier versions using VERSION AS OF or TIMESTAMP AS OF, thanks to the transaction log that records every change.", "tag": "Data Engineer Associate \u00b7 Practice question"}]};</script><script>/* ExamFastTrack — tiny static quiz engine. Reads window.QUIZ = {cta:{href,label}, questions:[...]} */
+(function(){
+  var data = window.QUIZ;
+  if(!data) return;
+  var root = document.getElementById('quiz');
+  var qs = data.questions, i = 0, score = 0, answered = false;
+  var keys = ['A','B','C','D','E'];
+
+  var card = document.createElement('div'); card.className='qcard';
+  var bar = document.createElement('div'); bar.className='qbar';
+  bar.innerHTML = '<span class="lbl"></span><div class="track2"><div class="fill"></div></div>';
+  var result = document.createElement('div'); result.className='result';
+  root.appendChild(bar); root.appendChild(card); root.appendChild(result);
+
+  function render(){
+    var q = qs[i];
+    answered = false;
+    bar.querySelector('.lbl').textContent = 'Question '+(i+1)+' of '+qs.length;
+    bar.querySelector('.fill').style.width = (i/qs.length*100)+'%';
+    var opts = q.options.map(function(o,idx){
+      return '<button class="opt" data-idx="'+idx+'"><span class="key">'+keys[idx]+'</span><span>'+o+'</span></button>';
+    }).join('');
+    card.innerHTML =
+      '<p class="qnum">'+(q.tag||'Practice question')+'</p>'+
+      '<p class="qtext">'+q.q+'</p>'+
+      '<div class="opts">'+opts+'</div>'+
+      '<div class="explain"><b>Explanation</b><span>'+q.explain+'</span></div>'+
+      '<div class="qnav"><button class="next">'+(i===qs.length-1?'See result':'Next question')+'</button></div>';
+    card.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click', choose); });
+    card.querySelector('.next').addEventListener('click', next);
+  }
+
+  function choose(e){
+    if(answered) return;
+    answered = true;
+    var pick = +e.currentTarget.getAttribute('data-idx');
+    var q = qs[i];
+    if(pick===q.answer) score++;
+    card.querySelectorAll('.opt').forEach(function(b){
+      var idx = +b.getAttribute('data-idx');
+      b.setAttribute('disabled','');
+      if(idx===q.answer) b.classList.add('correct');
+      else if(idx===pick) b.classList.add('wrong');
+    });
+    card.querySelector('.explain').classList.add('show');
+    card.querySelector('.next').classList.add('show');
+  }
+
+  function next(){
+    if(i<qs.length-1){ i++; render(); root.scrollIntoView({behavior:'smooth',block:'start'}); }
+    else finish();
+  }
+
+  function finish(){
+    bar.querySelector('.fill').style.width='100%';
+    bar.querySelector('.lbl').textContent='Complete';
+    card.style.display='none';
+    var pct = Math.round(score/qs.length*100);
+    var msg = pct>=70 ? "Nice — you'd likely pass this section. Ready for the full exam?"
+                      : "Some gaps to close. The full question bank will get you there.";
+    result.innerHTML =
+      '<p class="score"><span>'+score+'</span> / '+qs.length+'</p>'+
+      '<p>'+msg+'</p>'+
+      '<a class="btn" href="'+data.cta.href+'" target="_blank" rel="noopener">'+data.cta.label+'</a>';
+    result.classList.add('show');
+    result.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
+  render();
+})();
+</script></body></html>
