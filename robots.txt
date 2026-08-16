@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /handy-demo.html
+Disallow: /vorschau-fragen.html
+Disallow: /vorschau.html
+
+Sitemap: https://www.examfasttrack.com/sitemap.xml
