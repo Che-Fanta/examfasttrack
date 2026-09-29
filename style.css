@@ -160,6 +160,8 @@ img{max-width:100%;height:auto}
   text-decoration:none;padding:13px 22px;border-radius:9px;transition:background .16s ease;
 }
 .btn:hover{background:#eab84a;color:#1a1205}
+.cta .btn{margin:0 12px 12px 0}
+.cta .udemy-note{margin-top:6px}
 
 .tip{
   border-left:3px solid var(--gold);background:var(--paper-2);
