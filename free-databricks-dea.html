@@ -7,7 +7,63 @@
 <meta property="og:description" content="Free Databricks Certified Data Engineer Associate sample questions, aligned with the current exam guide. Focused on Delta Lake, the Lakehouse and the platform"><meta property="og:url" content="https://www.examfasttrack.com/free-databricks-dea.html"><meta property="og:image" content="https://www.examfasttrack.com/og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"></head><body><header class="site-head"><nav class="nav">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which command permanently removes data files that are no longer referenced by a Delta table and older than the retention threshold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VACUUM VACUUM removes unreferenced data files beyond the retention period, reclaiming storage. OPTIMIZE compacts files and ZORDER co-locates data — neither deletes old files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "You DROP a managed Delta table in Databricks. What happens to the underlying data files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The files are deleted along with the metadata For a managed table, Databricks controls both metadata and data, so dropping it deletes the underlying files. For an external table, only the metadata is removed and the files remain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which capability lets you query a previous version of a Delta table?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Time Travel Delta Lake Time Travel lets you query earlier versions using VERSION AS OF or TIMESTAMP AS OF, thanks to the transaction log that records every change."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which approach sends an email to the Databricks Job owner whenever the job fails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Setting up an Alert in the Job page Databricks Jobs have built-in alerting configured directly in the job definition, which emails the owner or chosen recipients on status changes, including failures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which feature of a data lakehouse leads to better data quality than a traditional data lake offers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ACID-compliant transactions ACID-compliant transactions — atomicity, consistency, isolation, durability — keep writes reliable and prevent partial or corrupt data, which is what raises data quality above a plain data lake."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which command writes data into a Delta table while preventing duplicate records from being written?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MERGE MERGE performs an upsert — updating rows that match a condition and inserting those that don't — which prevents duplicates. Plain INSERT or APPEND writes add rows unconditionally."
+      }
+    }
+  ]
+}
+</script>
+</head><body><header class="site-head"><nav class="nav">
 <a class="brand" href="index.html"><span class="mark"></span>ExamFastTrack<span class="tag">Pass first try</span></a>
 <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var l=this.parentNode.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><div class="nav-links"><a href="free-questions.html">Free questions</a><a href="psm-i-vs-psm-ii.html">Scrum</a><a href="aws-aif-c01-vs-saa-c03.html">AWS</a><a href="databricks-dea-difficulty.html">Databricks</a><a href="claude-architect-vs-developer.html">Claude</a></div>
 </nav></header>

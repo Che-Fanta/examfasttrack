@@ -7,7 +7,47 @@
 <meta property="og:description" content="Free Claude Certified Architect Professional (CCAR-P) sample questions on architecture, governance and integration."><meta property="og:url" content="https://www.examfasttrack.com/free-claude-cca-p.html"><meta property="og:image" content="https://www.examfasttrack.com/og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"></head><body><header class="site-head"><nav class="nav">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Meridian Pay processes 40,000 cross-border support tickets a day covering KYC document issues, chargeback disputes and FX rate complaints. The architecture team wants each ticket to reach the right specialized handling logic without building one giant prompt that tries to cover every ticket type at once. Which pattern best fits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A routing pattern: a lightweight classification step determines the ticket category, then dispatches to a specialized downstream prompt or tool built for that category Routing is the right pattern when inputs fall into distinct categories that each benefit from separate, specialized handling: a classification step determines the ticket type, and the request is dispatched to a prompt or workflow tuned for that category. A monolithic prompt scales poorly, an unguided agentic loop adds unnecessary latency and cost, and evaluator-optimizer is meant for iteratively refining a single output, not routing distinct request types."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A regulated healthcare client requires that PHI never leaves their VPC and that every model call be auditable for compliance review. Which architectural decision most directly addresses this requirement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Route all Claude API traffic through a private, logged gateway inside the client's infrastructure (or a compliant cloud deployment) with request/response logging for audit. Meeting data-residency and auditability requirements is a network and logging architecture decision: routing traffic through a private, compliant deployment with full request/response logging satisfies both the 'PHI never leaves the VPC' and 'auditable' requirements. Model choice and context window size don't address compliance, and relying on user behavior alone is not a control."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "During UAT, stakeholders report the agent's tool-selection behavior is inconsistent across similar tickets, but there's no automated way to detect this before it reaches production. What should the architecture include to catch this going forward?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An evaluation suite with representative test cases and pass/fail or graded criteria, run in CI before each deployment. Systematic evaluation — a representative test set scored automatically or by a grader model, run in CI — is how architecture teams catch behavioral regressions before they reach production. Prompt tweaks without tests don't prevent recurrence, removing tool use eliminates required functionality, and treating it as expected ignores a real reliability risk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A stakeholder asks why the team chose prompt caching for a high-volume customer support deployment with a large, mostly-static system prompt. What is the most accurate justification?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prompt caching reduces latency and cost by reusing previously processed portions of the prompt across repeated calls that share the same prefix. Prompt caching lets the API skip reprocessing a large, unchanged prompt prefix (like a long system prompt) on repeated calls, cutting both latency and cost — ideal for high-volume deployments with mostly-static instructions. It doesn't affect response quality directly, isn't a prerequisite for tool use, and isn't a training data store."
+      }
+    }
+  ]
+}
+</script>
+</head><body><header class="site-head"><nav class="nav">
 <a class="brand" href="index.html"><span class="mark"></span>ExamFastTrack<span class="tag">Pass first try</span></a>
 <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var l=this.parentNode.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><div class="nav-links"><a href="free-questions.html">Free questions</a><a href="psm-i-vs-psm-ii.html">Scrum</a><a href="aws-aif-c01-vs-saa-c03.html">AWS</a><a href="databricks-dea-difficulty.html">Databricks</a><a href="claude-architect-vs-developer.html">Claude</a></div>
 </nav></header>

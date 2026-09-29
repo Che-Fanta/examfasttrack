@@ -7,7 +7,63 @@
 <meta property="og:description" content="Free Claude Certified Developer (CCDV-F) sample questions on the Messages API, model selection and agents."><meta property="og:url" content="https://www.examfasttrack.com/free-claude-ccdv-f.html"><meta property="og:image" content="https://www.examfasttrack.com/og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"></head><body><header class="site-head"><nav class="nav">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "PayFlow Rails processes 12,000 card-authorization narrations per hour through the Claude API. Which HTTP status code does the API return when a request exceeds the organization's configured rate limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "429 Rate limiting has its own dedicated signal in the API. Once an organization crosses its configured requests-per-minute allotment, the API responds with 429, the standard code reserved for callers that have exceeded a quota. 500 is a generic server-side fault, 503 means the service itself is temporarily unavailable, and 400 flags a malformed request — none of these relate to request volume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A team needs to process 2 million support transcripts overnight where latency per request does not matter but cost does. Which Claude API feature is designed for exactly this workload?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Batch API The Batch API is built for large volumes of requests that can tolerate asynchronous processing (typically within 24 hours) in exchange for significantly lower cost — a direct fit for an overnight bulk job. Streaming reduces perceived latency for interactive use, prompt caching cuts cost on repeated prefixes but doesn't batch requests, and extended thinking improves reasoning quality, not throughput cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "You need the fastest, cheapest model available for a high-volume, low-complexity classification task, while reserving a more capable model for cases that need deeper reasoning. What is this approach called?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Model cascading / tiered model selection Tiered model selection (or cascading) routes the bulk of simple, high-volume requests to a fast, low-cost model and escalates only the harder cases to a more capable model — balancing cost and quality. Prompt injection is a security concern, context compaction manages token budgets within a session, and extended thinking is a reasoning feature, not a routing strategy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Your agent calls a tool and receives its result. What must the next message sent back to the API contain for Claude to correctly continue the conversation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A tool_result content block whose tool_use_id matches the id from Claude's original tool_use block. The agent loop requires a tool_result block that references the exact tool_use_id Claude issued, so Claude can match the result to its request. Pasting output as plain user text breaks this linkage, a new system prompt is unnecessary, and the API does not persist tool outputs on its own — the client must resend the full conversation state each turn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which technique reduces both cost and latency for repeated calls that share a large, unchanged block of instructions at the start of the prompt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prompt caching Prompt caching lets the API reuse the processed state of a static prompt prefix across calls, avoiding reprocessing that fixed content each time — cutting both cost and latency for repeated requests sharing that prefix. Extended thinking and max_tokens affect output generation, not prefix reuse, and the Batch API is for asynchronous bulk throughput, not per-call latency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A security review flags that user-supplied text embedded in a prompt could contain instructions attempting to override the system prompt. What is this risk called, and what is a standard mitigation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prompt injection; mitigated by clearly delimiting untrusted input and not granting it the same authority as system-level instructions. This describes prompt injection — untrusted content attempting to hijack the model's instructions. Standard mitigations include clearly delimiting/labeling untrusted input, not treating it as trusted instruction, and applying least-privilege to any tools that untrusted content could influence. The other options address unrelated concerns (throughput, token limits, and version stability)."
+      }
+    }
+  ]
+}
+</script>
+</head><body><header class="site-head"><nav class="nav">
 <a class="brand" href="index.html"><span class="mark"></span>ExamFastTrack<span class="tag">Pass first try</span></a>
 <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var l=this.parentNode.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><div class="nav-links"><a href="free-questions.html">Free questions</a><a href="psm-i-vs-psm-ii.html">Scrum</a><a href="aws-aif-c01-vs-saa-c03.html">AWS</a><a href="databricks-dea-difficulty.html">Databricks</a><a href="claude-architect-vs-developer.html">Claude</a></div>
 </nav></header>

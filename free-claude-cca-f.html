@@ -7,7 +7,63 @@
 <meta property="og:description" content="Free Claude Certified Architect (CCA-F) sample questions on agentic architecture, MCP and Claude Code."><meta property="og:url" content="https://www.examfasttrack.com/free-claude-cca-f.html"><meta property="og:image" content="https://www.examfasttrack.com/og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"></head><body><header class="site-head"><nav class="nav">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "You are building a client-side agentic loop against the Messages API. Which stop_reason value tells your code that it must execute the requested tool and return the result before Claude can continue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "tool_use The API reports why generation stopped through stop_reason. A value of tool_use means Claude has requested a tool: your loop executes it, appends a tool_result block carrying the matching tool_use_id, and sends the updated conversation back. end_turn means Claude is finished and the loop should stop. max_tokens signals a truncated response, and stop_sequence means a configured stop string was hit; neither requires a tool execution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "An MCP server needs to run as a long-lived local process that a desktop Claude Code session launches and communicates with over stdin/stdout. Which MCP transport is designed for this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "stdio transport The stdio transport spawns the MCP server as a subprocess and exchanges JSON-RPC messages over standard input/output — the standard choice for local tools launched by a desktop client. Streamable HTTP is used for remote, network-accessible MCP servers. MCP does not define a WebSocket or gRPC transport."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the primary purpose of a CLAUDE.md file in a Claude Code project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It gives Claude Code persistent, project-specific context and conventions that get loaded into every session. CLAUDE.md is read automatically at the start of a session and gives Claude durable context — coding conventions, architecture notes, common commands — so it doesn't need to be re-explained every time. It is not a secrets store, a README replacement, or a schema definition mechanism."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "In a coordinator-subagent architecture, why are subagents typically given their own isolated context window rather than sharing the coordinator's full conversation history?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It keeps each subagent focused on its delegated task and prevents unrelated conversation history from consuming its context budget. Giving each subagent a clean, task-scoped context window keeps it focused on the delegated work and avoids polluting its limited context with the coordinator's unrelated history, improving both reliability and token efficiency. Subagents can still call tools, and this has a real, not cosmetic, effect on output quality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "You want Claude to reliably return machine-parseable data instead of free-form prose. Which approach is the recommended way to get structured output when using tool use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Define a tool with a strict JSON schema and force its use via tool_choice, then read the arguments from the tool_use block. Defining a tool with an input_schema and forcing it with tool_choice makes Claude return arguments that conform to that schema inside a tool_use block — the most reliable path to structured output. Prompting alone is not reliable, regex clean-up is fragile, and temperature has no bearing on schema conformance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A long-running agent session is approaching its context window limit. Which strategy directly addresses this without losing the ability to continue the task?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Summarize or compact older turns into a condensed form while preserving the information needed to continue, then proceed with the reduced context. Context compaction — summarizing older turns and dropping detail no longer needed — is the standard reliability pattern for long-running agents approaching their context limit. It preserves continuity, unlike simply terminating. Context windows are fixed per model and are not expanded on request."
+      }
+    }
+  ]
+}
+</script>
+</head><body><header class="site-head"><nav class="nav">
 <a class="brand" href="index.html"><span class="mark"></span>ExamFastTrack<span class="tag">Pass first try</span></a>
 <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var l=this.parentNode.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><div class="nav-links"><a href="free-questions.html">Free questions</a><a href="psm-i-vs-psm-ii.html">Scrum</a><a href="aws-aif-c01-vs-saa-c03.html">AWS</a><a href="databricks-dea-difficulty.html">Databricks</a><a href="claude-architect-vs-developer.html">Claude</a></div>
 </nav></header>

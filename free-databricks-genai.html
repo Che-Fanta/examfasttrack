@@ -7,7 +7,63 @@
 <meta property="og:description" content="Free Databricks Certified Generative AI Engineer Associate sample questions, aligned with the current exam guide. Focused on RAG, agents, chunking and Model Serving"><meta property="og:url" content="https://www.examfasttrack.com/free-databricks-genai.html"><meta property="og:image" content="https://www.examfasttrack.com/og-image.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"></head><body><header class="site-head"><nav class="nav">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#B67F2E"><link rel="stylesheet" href="style.css"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A support team wants a single assistant that answers questions from a product manual (PDF) and cites the source passage in every answer. Which Agent Bricks component is the best fit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Knowledge Assistant grounded in the manual files Knowledge Assistant is built for grounded question answering over a document corpus, including citations back to the source passages. Genie targets structured/tabular data, Multiagent Supervisor coordinates several sub-agents, and Information Extraction pulls structured fields out of documents rather than answering open questions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "You are chunking a long technical PDF for retrieval. Which factor should drive the chunk size and overlap you choose?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The embedding model's context window and how self-contained each section of the document is Chunk size should respect the embedding model's context limit while keeping each chunk semantically self-contained, based on the document's own structure (headings, sections). Page count, storage table size and GPU count don't determine retrieval quality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "An application repeatedly returns unsafe or off-topic responses even though the prompt already instructs the model to stay on topic. Which change most directly addresses this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add an input/output guardrail that screens and blocks disallowed content A guardrail is a dedicated safety layer that screens inputs and outputs against policy, independent of how the base prompt is worded, so it catches cases the prompt alone fails to prevent. Raising temperature increases variability, a bigger model doesn't guarantee safety, and reducing retrieved chunks affects relevance, not safety."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which configuration choice for a Vector Search index has the most direct impact on how quickly newly written documents become searchable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The sync/update mode of the index (continuous vs. triggered) The index's sync mode controls how soon changes in the source Delta table are reflected in the index — continuous sync updates near real-time, while triggered sync only updates on a schedule or manual call. Vector dimensionality and distance metric affect search quality, not freshness, and the schema name has no effect on either."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A RAG application ingests internal documents that sometimes contain customer names and phone numbers. Which guardrail addresses this before the data reaches the model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PII masking/redaction applied during data preparation Masking or redacting personally identifiable information during data preparation keeps sensitive values out of the context the model sees, which is a governance control over the data itself. Rate limiting and inference logging are operational controls, and top-k affects how many chunks are retrieved, not their content."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A team wants to compare two prompt versions for the same RAG chain using ground-truth answers written by subject-matter experts. Which MLflow capability fits this evaluation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MLflow evaluation with a judge scored against ground truth MLflow's evaluation tooling can score a chain's outputs against ground-truth answers using a judge, producing comparable metrics across prompt versions. Registry aliases manage model lifecycle stages, GPU-utilisation tracking is an infra metric, and the audit log records access events rather than answer quality."
+      }
+    }
+  ]
+}
+</script>
+</head><body><header class="site-head"><nav class="nav">
 <a class="brand" href="index.html"><span class="mark"></span>ExamFastTrack<span class="tag">Pass first try</span></a>
 <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="var l=this.parentNode.querySelector('.nav-links');var o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button><div class="nav-links"><a href="free-questions.html">Free questions</a><a href="psm-i-vs-psm-ii.html">Scrum</a><a href="aws-aif-c01-vs-saa-c03.html">AWS</a><a href="databricks-dea-difficulty.html">Databricks</a><a href="claude-architect-vs-developer.html">Claude</a></div>
 </nav></header>
