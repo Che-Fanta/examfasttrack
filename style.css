@@ -292,3 +292,9 @@ img{max-width:100%;height:auto}
   margin:16px 0 0;display:flex;align-items:center;gap:8px;letter-spacing:.02em}
 .trust-line b{color:var(--ink);font-weight:600}
 .trust-line .star{color:var(--gold)}
+
+/* ---------- Static question overview on quiz pages ---------- */
+.covers{margin:44px 0 0}
+.covers h2{font-size:22px;margin:0 0 10px}
+.covers ol{padding-left:22px;margin:0 0 16px}
+.covers li{margin:0 0 10px;line-height:1.55}
