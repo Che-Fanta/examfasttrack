@@ -55,6 +55,12 @@ img{max-width:100%;height:auto}
 .nav-links{display:flex;gap:22px;font-family:"Space Grotesk",sans-serif;font-size:14px;font-weight:500;align-items:center}
 .nav-links a{text-decoration:none;color:var(--ink-soft)}
 .nav-links a:hover{color:var(--gold)}
+.nav-group{position:relative;padding:10px 0}
+.nav-sub{display:none;position:absolute;top:100%;left:-14px;min-width:230px;flex-direction:column;
+  background:var(--paper);border:1px solid var(--rule);border-radius:10px;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);padding:8px 0;z-index:30}
+.nav-group:hover .nav-sub,.nav-group:focus-within .nav-sub{display:flex}
+.nav-sub a{padding:8px 18px;white-space:nowrap}
 /* hamburger toggle — hidden on desktop */
 .nav-toggle{display:none;background:none;border:1px solid var(--rule);border-radius:8px;
   padding:8px 10px;cursor:pointer;line-height:0}
@@ -71,6 +77,10 @@ img{max-width:100%;height:auto}
   .nav-links a{padding:14px 24px;font-size:16px;border-top:1px solid var(--rule)}
   .nav-links a:first-child{border-top:none}
   .nav{position:relative}
+  .nav-group{padding:0;border-top:1px solid var(--rule)}
+  .nav-group>a{border-top:none}
+  .nav-sub{display:flex;position:static;min-width:0;border:none;border-radius:0;box-shadow:none;padding:0 0 8px;background:none}
+  .nav-links .nav-sub a{padding:9px 24px 9px 40px;font-size:15px;border-top:none;white-space:normal}
 }
 
 /* generic wrap */
