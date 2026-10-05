@@ -61,6 +61,7 @@ img{max-width:100%;height:auto}
   box-shadow:0 10px 24px rgba(0,0,0,.08);padding:8px 0;z-index:30}
 .nav-group:hover .nav-sub,.nav-group:focus-within .nav-sub{display:flex}
 .nav-sub a{padding:8px 18px;white-space:nowrap}
+.nav-sub-toggle{display:none}
 /* hamburger toggle — hidden on desktop */
 .nav-toggle{display:none;background:none;border:1px solid var(--rule);border-radius:8px;
   padding:8px 10px;cursor:pointer;line-height:0}
@@ -77,9 +78,14 @@ img{max-width:100%;height:auto}
   .nav-links a{padding:14px 24px;font-size:16px;border-top:1px solid var(--rule)}
   .nav-links a:first-child{border-top:none}
   .nav{position:relative}
-  .nav-group{padding:0;border-top:1px solid var(--rule)}
-  .nav-group>a{border-top:none}
-  .nav-sub{display:flex;position:static;min-width:0;border:none;border-radius:0;box-shadow:none;padding:0 0 8px;background:none}
+  .nav-group{padding:0;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;align-items:stretch}
+  .nav-group>a{border-top:none;flex:1}
+  .nav-sub-toggle{display:block;background:none;border:none;border-left:1px solid var(--rule);width:56px;cursor:pointer;position:relative}
+  .nav-sub-toggle::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-6px 0 0 -4px;
+    border-right:2px solid var(--ink-soft);border-bottom:2px solid var(--ink-soft);transform:rotate(45deg);transition:transform .2s}
+  .nav-group.open .nav-sub-toggle::after{transform:rotate(-135deg);margin-top:-2px}
+  .nav-sub{display:none;flex-basis:100%;position:static;min-width:0;border:none;border-radius:0;box-shadow:none;padding:0 0 8px;background:none}
+  .nav-group.open .nav-sub{display:flex}
   .nav-links .nav-sub a{padding:9px 24px 9px 40px;font-size:15px;border-top:none;white-space:normal}
 }
 
